@@ -10,7 +10,7 @@ test.describe("Form Layout page", async () => {
     await page.getByText("Form Layouts").click();
   });
 
-  test("input fields", async ({ page }, testInfo) => {
+  test("input fields", async ({ page }) => {
     const usingTheGridEmailInput = page
       .locator("nb-card", { hasText: "Using the Grid" })
       .getByRole("textbox", { name: "Email" });
@@ -62,22 +62,18 @@ test('checkboxes', async ({ page }) => {
     const allBoxes = page.getByRole('checkbox');
 
     for(const box of await allBoxes.all()) {
-        // await box.check({force: true});
-        // expect(await box.isChecked()).toBeTruthy();
-
         await box.uncheck({force: true});
         expect(await box.isChecked()).toBeFalsy();
     }
 });
 
-test('lists and dropdowns', async({ page }) => {
+test('lists and dropdowns', async ({ page }) => {
   const dropDownMenu = page.locator('ngx-header nb-select');
   await dropDownMenu.click();
 
   page.getByRole('list');     // when the list has an UL tag
   page.getByRole('listitem'); // when the list has a LI tag
 
-  // const optionList = page.getByRole('list').locator('nb-option');
   const optionList = page.locator('nb-option-list nb-option');
 
   await expect(optionList).toHaveText(['Light', 'Dark', 'Cosmic', 'Corporate']);
@@ -104,7 +100,7 @@ test('lists and dropdowns', async({ page }) => {
   await page.waitForTimeout(100);
 });
 
-test('tooltips', async({ page }) => {
+test('tooltips', async ({ page }) => {
 
   await page.getByText("Modal & Overlays").click();
   await page.getByText("Tooltip").click();
@@ -118,7 +114,7 @@ test('tooltips', async({ page }) => {
   expect(tooltip).toEqual('This is a tooltip');
 });
 
-test('dialog box', async({ page }) => {
+test('dialog box', async ({ page }) => {
   await page.getByText("Tables & Data").click();
   await page.getByText("Smart table").click();
 
@@ -207,8 +203,9 @@ test('datepicker', async ({ page }) => {
     await expect(calendarInputField).toHaveValue(dataToAssert);
 });
 
-test('Slider', async ({ page }) => {
-  // Update attributes
+test('Slider', async({ page }) => {
+    // Update attributes
+
     // const tempGauge = page.locator('[tabtitle="Temperature"] ngx-temperature-dragger circle');
     // await tempGauge.evaluate(node => {
     //   node.setAttribute('cx', '232.630')
@@ -231,5 +228,4 @@ test('Slider', async ({ page }) => {
     await page.mouse.up();
 
     await expect(tempBox).toContainText('30');
-
 });

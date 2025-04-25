@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 import { test } from '../test-options';
 
-test('drag and drop with iframe', async({ page, globalsQaURL }) => {
+test('drag and drop with iframe', async ({ page, globalsQaURL }) => {
     await page.goto(globalsQaURL);
 
     const frame = page.frameLocator('[rel-title="Photo Manager"] iframe');

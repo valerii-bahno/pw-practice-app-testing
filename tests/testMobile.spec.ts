@@ -5,10 +5,8 @@ test("input fields in mobile", async ({ page }, testInfo) => {
     if(testInfo.project.name == 'mobile') {
         await page.locator('a.sidebar-toggle').click();
     }
-
     await page.getByText("Forms").click();
     await page.getByText("Form Layouts").click();
-    // await page.locator('a.sidebar-toggle').click();
     if(testInfo.project.name == 'mobile') {
         await page.locator('a.sidebar-toggle').click();
     }
