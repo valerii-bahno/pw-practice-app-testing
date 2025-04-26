@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "pageObjects-chrome": "npx playwright test usePageObjects.spec.ts --project=chromium",
+    "pageObjects-chrome": "xvfb-run npx playwright test usePageObjects.spec.ts --project=chromium",
     "pageObjects-firefox": "npx playwright test usePageObjects.spec.ts --project=firefox",
     "pageObjects-all": "start npm run pageObjects-chrome && start npm run pageObjects-firefox",
     "uiComponents-chrome": "npx playwright test uiComponents.spec.ts --project=chromium",
