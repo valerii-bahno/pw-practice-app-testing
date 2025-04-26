@@ -37,20 +37,6 @@ export default defineConfig<TestOptions>({
 
   projects: [
     {
-      name: 'dev',
-      use: { 
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:4201/'
-       },
-    },
-    {
-      name: 'staging',
-      use: { 
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:4202/' },
-    },
-
-    {
       name: 'chromium',
       use: {
         headless: false
